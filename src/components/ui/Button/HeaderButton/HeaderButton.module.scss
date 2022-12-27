@@ -1,0 +1,22 @@
+.headerButton {
+  padding: 16px;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.35);
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+  &.styled {
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    .circle {
+      position: absolute;
+      top: 9px;
+      right: 7px;
+      width: 8px;
+      height: 8px;
+      background-color: #02E631;
+      border-radius: 50px;
+    }
+  }
+}

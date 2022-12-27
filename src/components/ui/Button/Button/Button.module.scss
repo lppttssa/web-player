@@ -1,0 +1,16 @@
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 17px 32px;
+  background-color: #09BB53;
+  color: #ABFFCE;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  .text {
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 500;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,27 @@
+.home {
+  .main {
+    width: 100%;
+    min-height: 1131px;
+    background: transparent no-repeat center center / cover;
+    .mainShadow {
+      background-color: rgba(35, 35, 35, 0.8);
+      width: 100%;
+      min-height: 1131px;
+      .moviesContent {
+        padding-top: 252px;
+        padding-bottom: 283px;
+        .movies {
+          padding-top: 56px;
+          .title {
+            display: inline-block;
+            margin-bottom: 16px;
+            font-family: Ubuntu, sans-serif;
+            font-size: 32px;
+            line-height: 37px;
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}
