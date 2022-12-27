@@ -8,7 +8,7 @@ export type MovieType = {
   country: string,
   genres: string[],
   imdb_rate: number,
-  in_new: boolean,
+  is_new: boolean,
   keyframe: string,
   length: number,
   min_age: number,

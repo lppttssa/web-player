@@ -8,6 +8,15 @@
 }
 
 @font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"),
+  url("src/assets/fonts/SourceSansPro-Bold.woff2") format("woff2"),
+  url("src/assets/fonts/SourceSansPro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Ubuntu";
   src: local("Ubuntu"),
   url("src/assets/fonts/Ubuntu-Medium.woff2") format("woff2"),
@@ -18,7 +27,7 @@
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
-  background-color: rgba(35, 35, 35, 0.8);
+  background-color: rgba(85,85,86,255);
 }
 
 *:focus, *:focus-visible {
@@ -72,6 +81,13 @@ button {
   max-width: 1816px;
   padding-right: 20px;
   padding-left: 20px;
+  margin: 0 auto;
+}
+
+.movies-container {
+  max-width: 1920px;
+  padding-left: 56px;
+  padding-right: 56px;
   margin: 0 auto;
 }
 

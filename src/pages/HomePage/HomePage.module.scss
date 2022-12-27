@@ -12,13 +12,16 @@
         padding-bottom: 283px;
         .movies {
           padding-top: 56px;
-          .title {
-            display: inline-block;
-            margin-bottom: 16px;
-            font-family: Ubuntu, sans-serif;
-            font-size: 32px;
-            line-height: 37px;
-            color: #FFFFFF;
+          .titleContainer {
+            text-align: center;
+            .title {
+              display: inline-block;
+              margin-bottom: 56px;
+              font-family: Ubuntu, sans-serif;
+              font-size: 32px;
+              line-height: 37px;
+              color: #FFFFFF;
+            }
           }
         }
       }

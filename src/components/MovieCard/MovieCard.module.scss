@@ -1,0 +1,42 @@
+.movieCard {
+  max-width: 368px;
+  .imgContainer {
+    position: relative;
+    margin-bottom: 16px;
+    .poster {
+      width: 368px;
+      height: 208px;
+    }
+    .shadow {
+      position: absolute;
+      width: 368px;
+      height: 208px;
+      top: 0;
+      left: 0;
+      background: rgba(35, 35, 35, 0.5);
+    }
+    .widgetsContainer {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      .firstWidget {
+        margin-right: 16px;
+      }
+    }
+  }
+  .title {
+    margin-bottom: 4px;
+    font-family: Ubuntu, sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+  .genres {
+    padding-top: 4px;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+}

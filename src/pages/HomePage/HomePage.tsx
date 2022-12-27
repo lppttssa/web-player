@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { getData } from '../../request';
 import { BackgroundType, MovieType, DataType } from '../../types';
 import { Input } from '../../components/ui/Input/Input';
+import Slider from '../../components/Slider/Slider';
+import cn from 'classnames';
 
 const HomePage = (): JSX.Element => {
   const [backgrounds, setBackgrounds] = useState<BackgroundType[]>([]);
@@ -23,8 +25,6 @@ const HomePage = (): JSX.Element => {
     }
   }, [backgrounds])
 
-  console.log(movies)
-
   return (
     <div className={s.home}>
       <Header />
@@ -32,6 +32,12 @@ const HomePage = (): JSX.Element => {
         <div className={s.mainShadow}>
           <section className={s.moviesContent}>
             <Input />
+            <div className={s.movies}>
+              <div className={cn('movies-container', s.titleContainer)}>
+                <h2 className={s.title}>in the spotlight</h2>
+              </div>
+              <Slider items={movies} />
+            </div>
           </section>
         </div>
       </main>

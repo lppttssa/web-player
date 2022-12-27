@@ -1,0 +1,17 @@
+.widget {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #DE8B0F;
+  border-radius: 4px;
+  &.green {
+    background-color: #09BB53;
+  }
+  .rate {
+    padding-left: 10px;
+    font-weight: 700;
+  }
+}
