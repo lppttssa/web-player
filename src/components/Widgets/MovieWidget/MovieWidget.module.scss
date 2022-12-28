@@ -1,14 +1,16 @@
+@import "src/colors";
+
 .widget {
   display: inline-block;
   padding: 4px 8px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
-  color: #FFFFFF;
+  color: $mainContent;
   background-color: #DE8B0F;
   border-radius: 4px;
   &.green {
-    background-color: #09BB53;
+    background-color: $green;
   }
   .rate {
     padding-left: 10px;

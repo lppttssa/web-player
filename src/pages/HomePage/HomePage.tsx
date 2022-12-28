@@ -14,6 +14,7 @@ const HomePage = (): JSX.Element => {
   const [searchValue, setSearchValue] = useState('');
   const [isContentShown, setContentShown] = useState(true);
   const [isDataLoading, setDataLoading] = useState(false);
+  const [isInputTriggered, setInputTriggered] = useState(false);
 
   useEffect(() => {
     getData().then((response: DataType) => {
@@ -63,12 +64,13 @@ const HomePage = (): JSX.Element => {
     setContentShown(false);
   }
 
-  const isAllMoviesShown = () => {
-    return movies.length === filteredMovies.length;
+  const handleInputFocus = () => {
+    setInputTriggered(true);
+    setContentShown(false);
   }
 
   const getPageTitle = () => {
-    if (isAllMoviesShown()) {
+    if (!searchValue.length) {
       return 'in the spotlight';
     }
     return `TV Shows (${filteredMovies.length})`;
@@ -79,22 +81,19 @@ const HomePage = (): JSX.Element => {
       <Header />
       <main id={'main'} className={s.main}>
         <div className={s.mainShadow}>
-          <section className={cn(s.moviesContent, { [s.changedPadding]: !isContentShown || !isAllMoviesShown() })}>
+          <section className={cn(s.moviesContent, { [s.changedPadding]: !isContentShown || !!searchValue.length, [s.animated]: isInputTriggered })}>
             <Input
               handleSearchClick={handleSearch}
               inputValue={searchValue}
               handleInputChange={handleInputChange}
-              handleInputClear={() => {
-                setSearchValue('');
-                setContentShown(true);
-              }}
-              handleInputFocus={() => setContentShown(false)}
+              handleInputClear={() => setSearchValue('')}
+              handleInputFocus={handleInputFocus}
               className={s.input}
             />
             {isDataLoading && <div className={s.loader} />}
             {isContentShown &&
               <div className={s.movies}>
-                <div className={cn('movies-container', s.titleContainer, { [s.centeredText]: isAllMoviesShown() })}>
+                <div className={cn('movies-container', s.titleContainer, { [s.centeredText]: !searchValue.length })}>
                   <h2 className={s.title}>{getPageTitle()}</h2>
                 </div>
                 <Slider items={filteredMovies} />

@@ -19,12 +19,19 @@ export const Input = (props: InputProps):JSX.Element => {
     handleSearchClick, inputValue, handleInputChange, handleInputClear, handleInputFocus, className
   } = props;
 
-
+  const handleClear = () => {
+    const input = document.getElementById('input');
+    if (input) {
+      input.focus();
+    }
+    handleInputClear();
+  }
 
   return (
     <form className={cn(s.inputForm, className)}>
       <div className={s.inputContainer}>
         <input
+          id='input'
           onFocus={handleInputFocus}
           className={cn(s.input, { [s.activeInput]: inputValue.length })}
           type='text'
@@ -32,7 +39,7 @@ export const Input = (props: InputProps):JSX.Element => {
           value={inputValue}
           onChange={handleInputChange}
         />
-        {!!inputValue.length && <img src={crossIcon} alt='x' className={s.crossIcon} onClick={handleInputClear} />}
+        {!!inputValue.length && <img src={crossIcon} alt='x' className={s.crossIcon} onClick={handleClear} />}
       </div>
       <Button
         type="button"

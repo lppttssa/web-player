@@ -10,7 +10,9 @@ import { AccountIcon } from '../ui/icons/headerIcons/AccountIcon';
 const Header = ():JSX.Element => {
   return (
     <header className={cn('container', s.header)}>
-      <img src={logo} alt='NetUp' />
+      <Link to='/'>
+        <img src={logo} alt='NetUp' />
+      </Link>
       <nav className={s.nav}>
         <ul className={cn('list-reset', s.navList)}>
           {navLinks.map((link) => (

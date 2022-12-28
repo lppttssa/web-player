@@ -1,8 +1,12 @@
+@import "src/colors";
+
 .btn {
   display: flex;
   align-items: center;
+  overflow: hidden;
   padding: 17px 32px;
-  background-color: #09BB53;
+  max-width: 300px;
+  background-color: $green;
   color: #ABFFCE;
   border: none;
   border-radius: 0 4px 4px 0;

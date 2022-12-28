@@ -1,7 +1,9 @@
+@import "src/colors";
+
 .header {
   display: flex;
   align-items: center;
-  background-color: rgba(85,85,86,255);
+  background-color: $background;
   .nav {
     margin-right: auto;
     margin-left: auto;
@@ -18,10 +20,11 @@
           display: flex;
           align-items: center;
           .linkText {
+            max-width: 140px;
             font-size: 24px;
             line-height: 30px;
             font-weight: 400;
-            color: #FFFFFF;
+            color: $mainContent;
           }
         }
       }

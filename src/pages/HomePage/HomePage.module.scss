@@ -1,3 +1,5 @@
+@import "src/colors";
+
 .home {
   .main {
     width: 100%;
@@ -9,19 +11,50 @@
       min-height: 1131px;
       animation: shadowAnimation 5s linear infinite;
       @keyframes shadowAnimation {
-        0% { background-color: rgba(35, 35, 35, 1); animation-timing-function: ease-in; }
-        15% {  background-color: rgba(35, 35, 35, 0.8); animation-timing-function: ease-out; }
-        50% {  background-color: rgba(35, 35, 35, 0.8); animation-timing-function: ease-out; }
-        85% {  background-color: rgba(35, 35, 35, 0.8); animation-timing-function: ease-out; }
-        100% {  background-color: rgba(35, 35, 35, 1) }
+        0% {
+          background-color: rgba(35, 35, 35, 1);
+          animation-timing-function: ease-in;
+        }
+        15% {
+          background-color: rgba(35, 35, 35, 0.8);
+          animation-timing-function: ease-out;
+        }
+        50% {
+          background-color: rgba(35, 35, 35, 0.8);
+          animation-timing-function: ease-out;
+        }
+        85% {
+          background-color: rgba(35, 35, 35, 0.8);
+          animation-timing-function: ease-out;
+        }
+        100% {
+          background-color: rgba(35, 35, 35, 1)
+        }
       }
       .moviesContent {
         padding-top: 252px;
         padding-bottom: 283px;
+        &.animated {
+          animation: down .6s;
+        }
         &.changedPadding {
           padding-top: 120px;
           animation: up .6s;
           animation-fill-mode: both;
+        }
+        @keyframes down {
+          0% {
+            padding-top: 120px;
+          }
+          40% {
+            padding-top: 270px;
+          }
+          70% {
+            padding-top: 245px;
+          }
+          100% {
+            padding-top: 252px;
+          }
         }
         @keyframes up {
           0% {
@@ -46,10 +79,11 @@
             .title {
               display: inline-block;
               margin-bottom: 56px;
+              width: 90%;
               font-family: Ubuntu, sans-serif;
               font-size: 32px;
               line-height: 37px;
-              color: #FFFFFF;
+              color: $mainContent;
             }
           }
         }
@@ -61,7 +95,7 @@
           margin-right: auto;
           width: 80px;
           height: 80px;
-          border: 10px solid #FFFFFF;
+          border: 10px solid $mainContent;
           border-top: 10px solid transparent;
           border-radius: 50%;
           animation: spin 2s linear infinite;

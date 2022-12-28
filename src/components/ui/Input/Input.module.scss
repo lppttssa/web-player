@@ -1,6 +1,10 @@
+@import "src/colors";
+
 .inputForm {
   display: flex;
-  max-width: 1127px;
+  max-width: 1187px;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -16,14 +20,15 @@
       font-weight: 400;
       background: rgba(255, 255, 255, 0.1);
       border-width: 1px 0 1px 1px;
-      border-color: #FFFFFF;
+      border-color: $mainContent;
       border-radius: 4px 0 0 4px;
       transition: background-color .3s ease-in-out;
+      color: $inputText;
       &::placeholder {
         color: #6F6F6F;
       }
       &:hover, &:focus-within, &.activeInput {
-        background-color: #FFFFFF;
+        background-color: $mainContent;
       }
     }
     .crossIcon {
@@ -31,6 +36,7 @@
       right: 26px;
       top: calc(50% - 12px);
       margin: auto 0;
+      cursor: pointer;
     }
   }
   .searchIcon {

@@ -1,3 +1,5 @@
+@import "src/colors";
+
 .movieCard {
   max-width: 368px;
   .imgContainer {
@@ -120,13 +122,13 @@
     font-size: 24px;
     line-height: 28px;
     font-weight: 500;
-    color: #FFFFFF;
+    color: $mainContent;
   }
   .genres {
     padding-top: 4px;
     font-size: 20px;
     line-height: 25px;
     font-weight: 400;
-    color: #FFFFFF;
+    color: $mainContent;
   }
 }

@@ -1,6 +1,9 @@
+@import "src/colors";
+
 .list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   .listItem {
     padding-right: 8px;
     &:first-child {
@@ -18,14 +21,14 @@
       font-size: 20px;
       line-height: 25px;
       font-weight: 400;
-      color: #A6A6A6;
+      color: $movieDescription;
       &::before {
         border-radius: 10px;
         margin-right: 8px;
         content: '';
         width: 1px;
         height: 22px;
-        background-color: #A6A6A6;
+        background-color: $movieDescription;
       }
     }
     &:first-child {

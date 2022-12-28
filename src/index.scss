@@ -1,3 +1,5 @@
+@import "colors";
+
 @font-face {
   font-family: "Source Sans Pro";
   src: local("Source Sans Pro"),
@@ -27,7 +29,7 @@
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
-  background-color: rgba(85,85,86,255);
+  background-color: $background;
 }
 
 *:focus, *:focus-visible {
