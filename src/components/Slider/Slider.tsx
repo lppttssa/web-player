@@ -6,6 +6,7 @@ import { FreeMode, Pagination } from "swiper";
 import s from './Slider.module.scss';
 import { MovieType } from '../../types';
 import { MovieCard } from '../MovieCard/MovieCard';
+import { generateKey } from '../../functions';
 
 type SliderProps = {
   items: MovieType[],
@@ -26,7 +27,7 @@ export const Slider = (props: SliderProps):JSX.Element => {
         modules={[FreeMode, Pagination]}
       >
         {items.map((item) => (
-          <SwiperSlide className={s.swiperSlide}>
+          <SwiperSlide className={s.swiperSlide} key={generateKey()}>
             <MovieCard
               type={item.type}
               title={item.title}
