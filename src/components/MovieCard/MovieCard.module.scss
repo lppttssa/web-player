@@ -2,10 +2,40 @@
   max-width: 368px;
   .imgContainer {
     position: relative;
+    overflow: hidden;
     margin-bottom: 16px;
+    width: 368px;
+    height: 208px;
+    &:hover {
+      .shadow {
+        background: rgba(35, 35, 35, 0.8);
+      }
+      .widgetsContainer {
+        &.animated {
+          animation: up .2s;
+          animation-fill-mode: both;
+        }
+      }
+      .btnContainer {
+        &.animated {
+          animation: btnUp .6s;
+          animation-fill-mode: both;
+        }
+      }
+      .hoveredPoster {
+        visibility: visible;
+      }
+    }
     .poster {
-      width: 368px;
-      height: 208px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .hoveredPoster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
     }
     .shadow {
       position: absolute;
@@ -19,8 +49,68 @@
       position: absolute;
       left: 8px;
       top: 8px;
+      &.animated {
+        animation: down .6s;
+        animation-fill-mode: backwards;
+      }
       .firstWidget {
         margin-right: 16px;
+      }
+      @keyframes down {
+        0% {
+          top: -30px;
+        }
+        40% {
+          top: 15px;
+        }
+        70% {
+          top: 6px;
+        }
+        100% {
+          top: 8px;
+        }
+      }
+      @keyframes up {
+        0% {
+          top: 8px;
+        }
+        100% {
+          top: -30px;
+        }
+      }
+    }
+    .btnContainer {
+      position: absolute;
+      top: 300px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 210px;
+      width: 100%;
+      &.animated {
+        animation: btnDown .4s;
+        animation-fill-mode: both;
+      }
+    }
+    @keyframes btnDown {
+      0% {
+        top: 50%;
+      }
+      100% {
+        top: 300px;
+      }
+    }
+    @keyframes btnUp {
+      0% {
+        top: 300px;
+      }
+      40% {
+        top: 45%;
+      }
+      70% {
+        top: 52%;
+      }
+      100% {
+        top: 50%;
       }
     }
   }

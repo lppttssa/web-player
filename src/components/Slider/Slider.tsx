@@ -16,8 +16,6 @@ export const Slider = (props: SliderProps):JSX.Element => {
     items,
   } = props;
 
-  console.log(items)
-
   return (
     <div className={s.sliderContainer}>
       <Swiper

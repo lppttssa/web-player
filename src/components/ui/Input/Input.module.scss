@@ -1,4 +1,4 @@
-.inputElement {
+.inputForm {
   display: flex;
   max-width: 1127px;
   width: 100%;
@@ -14,9 +14,17 @@
       font-size: 20px;
       line-height: 25px;
       font-weight: 400;
-      background-color: #FFFFFF;
-      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-width: 1px 0 1px 1px;
+      border-color: #FFFFFF;
       border-radius: 4px 0 0 4px;
+      transition: background-color .3s ease-in-out;
+      &::placeholder {
+        color: #6F6F6F;
+      }
+      &:hover, &:focus-within, &.activeInput {
+        background-color: #FFFFFF;
+      }
     }
     .crossIcon {
       position: absolute;

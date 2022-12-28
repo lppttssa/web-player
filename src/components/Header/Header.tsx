@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.svg'
 import { navLinks } from '../../data';
 import { Link } from 'react-router-dom';
 import { HeaderButton } from '../ui/Button/HeaderButton/HeaderButton';
-import { SearchIcon } from '../ui/icons/headerIcons/SearchIcon';
+import { SearchIcon } from '../ui/icons/SearchIcon';
 import { AccountIcon } from '../ui/icons/headerIcons/AccountIcon';
 
 const Header = ():JSX.Element => {

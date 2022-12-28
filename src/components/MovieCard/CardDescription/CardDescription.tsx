@@ -10,8 +10,6 @@ export const CardDescription = (props: CardDescriptionProps) => {
     descriptions
   } = props;
 
-  console.log(descriptions)
-
   return (
     <ul className={cn('list-reset', s.list)}>
       {descriptions.map((item) => (
