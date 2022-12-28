@@ -4,17 +4,63 @@
   display: flex;
   align-items: center;
   background-color: $background;
+  .logo {
+    @media (max-width: 1024px) {
+      margin-right: auto;
+    }
+  }
   .nav {
     margin-right: auto;
     margin-left: auto;
+    @media (max-width: 1024px) {
+      position: absolute;
+      left: 0;
+      top: 56px;
+      padding-top: 0;
+      padding-bottom: 0;
+      max-width: 1024px;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      background-color: $background;
+      transition: max-height .4s ease-in-out;
+      z-index: 2;
+      &.active {
+        max-height: 500px;
+        transition: max-height .4s ease-in-out;
+      }
+    }
+    @media (max-width: 470px) {
+      top: 48px;
+    }
     .navList {
       padding-top: 12px;
       padding-bottom: 12px;
       display: flex;
       align-items: center;
+      @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
       .listItem {
         &:not(:last-child) {
           margin-right: 48px;
+          @media (max-width: 1180px) {
+            margin-right: 30px;
+          }
+        }
+        @media (max-width: 1024px) {
+          padding: 15px 20px;
+          width: 100%;
+          &:not(:last-child) {
+            border-bottom: 1px solid $mainContent;
+          }
+        }
+        @media (max-width: 380px) {
+          padding-left: 10px;
+          padding-right: 10px;
         }
         .link {
           display: flex;
@@ -25,6 +71,10 @@
             line-height: 30px;
             font-weight: 400;
             color: $mainContent;
+            @media (max-width: 1180px) {
+              font-size: 22px;
+              line-height: 28px;
+            }
           }
         }
       }

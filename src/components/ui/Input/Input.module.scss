@@ -24,6 +24,9 @@
       border-radius: 4px 0 0 4px;
       transition: background-color .3s ease-in-out;
       color: $inputText;
+      @media (max-width: 400px) {
+        padding: 10px 30px 10px 10px;
+      }
       &::placeholder {
         color: #6F6F6F;
       }
@@ -37,13 +40,21 @@
       top: calc(50% - 12px);
       margin: auto 0;
       cursor: pointer;
+      @media (max-width: 400px) {
+        right: 5px;
+      }
     }
   }
+  .btn {
+    flex-shrink: 0;
+  }
   .searchIcon {
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
     path {
       fill: #ABFFCE;
+      stroke: #ABFFCE;
     }
   }
 }

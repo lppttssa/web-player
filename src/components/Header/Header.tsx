@@ -6,14 +6,17 @@ import { Link } from 'react-router-dom';
 import { HeaderButton } from '../ui/Button/HeaderButton/HeaderButton';
 import { SearchIcon } from '../ui/icons/SearchIcon';
 import { AccountIcon } from '../ui/icons/headerIcons/AccountIcon';
+import { useState } from 'react';
 
 const Header = ():JSX.Element => {
+  const [isMenuOpened, setMenuOpened] = useState(false);
+
   return (
     <header className={cn('container', s.header)}>
-      <Link to='/'>
+      <Link to='/' className={s.logo}>
         <img src={logo} alt='NetUp' />
       </Link>
-      <nav className={s.nav}>
+      <nav className={cn(s.nav, { [s.active]: isMenuOpened })}>
         <ul className={cn('list-reset', s.navList)}>
           {navLinks.map((link) => (
             <li className={s.listItem} key={link.id}>
@@ -27,6 +30,11 @@ const Header = ():JSX.Element => {
       </nav>
       <HeaderButton style='default' icon={<SearchIcon />} />
       <HeaderButton style='styled' icon={<AccountIcon />} />
+      <HeaderButton
+        style='burger'
+        onClick={() => setMenuOpened(!isMenuOpened)}
+        btnType={isMenuOpened ? 'burgerClose' : 'burgerOpen'}
+      />
     </header>
   );
 };

@@ -2,12 +2,19 @@
 
 .movieCard {
   max-width: 368px;
+  @media (max-width: 440px) {
+    max-width: 260px;
+  }
   .imgContainer {
     position: relative;
     overflow: hidden;
     margin-bottom: 16px;
     width: 368px;
     height: 208px;
+    @media (max-width: 440px) {
+      width: 260px;
+      height: 158px;
+    }
     &:hover {
       .shadow {
         background: rgba(35, 35, 35, 0.8);
@@ -46,6 +53,10 @@
       top: 0;
       left: 0;
       background: rgba(35, 35, 35, 0.5);
+      @media (max-width: 440px) {
+        max-width: 260px;
+        height: 158px;
+      }
     }
     .widgetsContainer {
       position: absolute;

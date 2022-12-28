@@ -9,6 +9,9 @@
   color: $mainContent;
   background-color: #DE8B0F;
   border-radius: 4px;
+  @media (max-width: 440px) {
+    font-size: 14px;
+  }
   &.green {
     background-color: $green;
   }

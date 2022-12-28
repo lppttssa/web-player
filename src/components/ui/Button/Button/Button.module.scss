@@ -10,6 +10,12 @@
   color: #ABFFCE;
   border: none;
   border-radius: 0 4px 4px 0;
+  @media (max-width: 600px) {
+    padding: 10px 20px;
+  }
+  @media (max-width: 400px) {
+    padding: 10px 10px;
+  }
   &.transparent {
     background-color: transparent;
     border: 1px solid #ABFFCE;
@@ -21,5 +27,8 @@
     line-height: 23px;
     font-weight: 500;
     margin-right: 10px;
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
   }
 }

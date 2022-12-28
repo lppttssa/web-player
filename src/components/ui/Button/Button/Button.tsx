@@ -8,15 +8,16 @@ type ButtonProps = {
   style?: 'default' | 'transparent',
   onClick?: () => void,
   type?: "button" | "submit" | "reset",
+  className?: string,
 }
 
 export const Button = (props: ButtonProps):JSX.Element => {
   const {
-    text, icon, style, onClick, type
+    text, icon, style, onClick, type, className
   } = props;
 
   return (
-    <button className={cn(s.btn, { [s.transparent]: style === 'transparent' })} onClick={onClick} type={type}>
+    <button className={cn(s.btn, { [s.transparent]: style === 'transparent' }, className)} onClick={onClick} type={type}>
       <span className={s.text}>{text}</span>
       {icon}
     </button>

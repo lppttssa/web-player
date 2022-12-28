@@ -28,7 +28,7 @@ export const Input = (props: InputProps):JSX.Element => {
   }
 
   return (
-    <form className={cn(s.inputForm, className)}>
+    <form className={cn(s.inputForm, className)} onSubmit={e => { e.preventDefault(); }} >
       <div className={s.inputContainer}>
         <input
           id='input'
@@ -42,6 +42,7 @@ export const Input = (props: InputProps):JSX.Element => {
         {!!inputValue.length && <img src={crossIcon} alt='x' className={s.crossIcon} onClick={handleClear} />}
       </div>
       <Button
+        className={s.btn}
         type="button"
         text='search'
         icon={<SearchIcon className={s.searchIcon} />}
