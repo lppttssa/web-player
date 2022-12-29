@@ -1,5 +1,5 @@
 import s from './MovieCard.module.scss';
-import { MovieType } from '../../types';
+import { DescriptionType, MovieType } from '../../types';
 import { CardDescription } from './CardDescription/CardDescription';
 import { MovieWidget } from '../Widgets/MovieWidget/MovieWidget';
 import { PlayIcon } from '../ui/icons/PlayIcon';
@@ -15,6 +15,11 @@ export const MovieCard = (props: MovieType) => {
 
   const handleMouseOver = () => {
     setMovieTriggered(true);
+  }
+
+  const createCardDescriptionArray = (): DescriptionType[] => {
+    return [country, year.toString(), `${(length / 60)} min`,
+      `${num_seasons} seasons`, `${min_age}+`].map((item, index) => ({id: index, title: item}))
   }
 
   return (
@@ -33,8 +38,7 @@ export const MovieCard = (props: MovieType) => {
       </div>
       <h3 className={s.title}>{title}</h3>
       <CardDescription
-        descriptions={[country, year.toString(), `${(length / 60)} min`,
-        `${num_seasons} seasons`, `${min_age}+`]}
+        descriptions={createCardDescriptionArray()}
       />
       <p className={s.genres}>{genres.join(', ')}</p>
     </article>

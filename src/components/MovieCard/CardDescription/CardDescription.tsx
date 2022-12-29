@@ -1,9 +1,9 @@
 import s from './CardDescription.module.scss';
 import cn from 'classnames';
-import { generateKey } from '../../../functions';
+import { DescriptionType } from '../../../types';
 
 type CardDescriptionProps = {
-  descriptions: string[],
+  descriptions: DescriptionType[],
 }
 
 export const CardDescription = (props: CardDescriptionProps) => {
@@ -14,8 +14,8 @@ export const CardDescription = (props: CardDescriptionProps) => {
   return (
     <ul className={cn('list-reset', s.list)}>
       {descriptions.map((item) => (
-        <li className={s.listItem} key={generateKey()}>
-          <span className={s.text}>{item}</span>
+        <li className={s.listItem} key={item.id}>
+          <span className={s.text}>{item.title}</span>
         </li>
       ))}
     </ul>

@@ -21,3 +21,8 @@ export type DataType = {
   backgrounds: BackgroundType[],
   items: MovieType[],
 }
+
+export type DescriptionType = {
+  id: number,
+  title: string,
+}

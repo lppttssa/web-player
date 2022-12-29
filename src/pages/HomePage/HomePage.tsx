@@ -9,17 +9,18 @@ import cn from 'classnames';
 
 const HomePage = (): JSX.Element => {
   const [backgrounds, setBackgrounds] = useState<BackgroundType[]>([]);
-  const [movies, setMovies] = useState<MovieType[]>([]);
-  const [filteredMovies, setFilteredMovies] = useState<MovieType[]>(movies);
+  const [movies, setMovies] = useState<(MovieType & {id: number})[]>([]);
+  const [filteredMovies, setFilteredMovies] = useState<(MovieType & {id: number})[]>(movies);
   const [searchValue, setSearchValue] = useState('');
   const [isContentShown, setContentShown] = useState(true);
   const [isDataLoading, setDataLoading] = useState(false);
   const [isInputTriggered, setInputTriggered] = useState(false);
+  const [isMoviesFiltered, setMoviesFiltered] = useState(false);
 
   useEffect(() => {
     getData().then((response: DataType) => {
       setBackgrounds(response.backgrounds)
-      setMovies(response.items)
+      setMovies(response.items.map((item, index) => ({id: index, ...item})))
     })
   }, []);
 
@@ -34,7 +35,6 @@ const HomePage = (): JSX.Element => {
       }, 5000);
       return () => clearInterval(interval);
     }
-
   }, [backgrounds]);
 
   useEffect(() => {
@@ -47,15 +47,16 @@ const HomePage = (): JSX.Element => {
     const timer = setTimeout(() => {
       if (value === '') {
         setFilteredMovies(movies);
+        setMoviesFiltered(false);
       } else {
         const newFilteredMovies =
           movies.filter((movie) => movie.title.toLowerCase().includes(value.toLowerCase()));
         setFilteredMovies(newFilteredMovies);
+        setMoviesFiltered(true);
       }
       setDataLoading(false);
       setContentShown(true);
     }, 1000)
-
     return () => clearTimeout(timer)
   }
 
@@ -69,8 +70,13 @@ const HomePage = (): JSX.Element => {
     setContentShown(false);
   }
 
+  const handleInputClear = () => {
+    setSearchValue('');
+    setContentShown(true);
+  }
+
   const getPageTitle = () => {
-    if (!searchValue.length) {
+    if (!isMoviesFiltered) {
       return 'in the spotlight';
     }
     return `TV Shows (${filteredMovies.length})`;
@@ -81,19 +87,19 @@ const HomePage = (): JSX.Element => {
       <Header />
       <main id={'main'} className={s.main}>
         <div className={s.mainShadow}>
-          <section className={cn(s.moviesContent, { [s.changedPadding]: !isContentShown || !!searchValue.length, [s.animated]: isInputTriggered })}>
+          <section className={cn(s.moviesContent, { [s.changedPadding]: !isContentShown || isMoviesFiltered, [s.animated]: isInputTriggered })}>
             <Input
               handleSearchClick={handleSearch}
               inputValue={searchValue}
               handleInputChange={handleInputChange}
-              handleInputClear={() => setSearchValue('')}
+              handleInputClear={handleInputClear}
               handleInputFocus={handleInputFocus}
               className={s.input}
             />
             {isDataLoading && <div className={s.loader} />}
             {isContentShown &&
               <div className={s.movies}>
-                <div className={cn('movies-container', s.titleContainer, { [s.centeredText]: !searchValue.length })}>
+                <div className={cn('movies-container', s.titleContainer, { [s.centeredText]: !isMoviesFiltered })}>
                   <h2 className={s.title}>{getPageTitle()}</h2>
                 </div>
                 <Slider items={filteredMovies} />
