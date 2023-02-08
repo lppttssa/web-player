@@ -25,8 +25,8 @@ export const MovieCard = (props: MovieType) => {
   return (
     <article className={s.movieCard}>
       <div className={s.imgContainer} onMouseOver={handleMouseOver}>
-        <img src={`api/${poster}`} alt={title} className={s.poster} />
-        <img src={`api/${keyframe}`} alt={title} className={s.hoveredPoster} />
+        <img src={poster} alt={title} className={s.poster} />
+        <img src={keyframe} alt={title} className={s.hoveredPoster} />
         <div className={s.shadow}/>
         <div className={cn(s.widgetsContainer, { [s.animated]: isMovieTriggered })}>
           {is_new && <MovieWidget style='new' text={'New on NetUP TV'} className={s.firstWidget} />}

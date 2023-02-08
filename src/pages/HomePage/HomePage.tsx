@@ -28,9 +28,9 @@ const HomePage = (): JSX.Element => {
     let backgroundType = 1;
     const mainEl = document.getElementById('main');
     if (mainEl) {
-      mainEl.style.backgroundImage = `url('api/${backgrounds[0]?.url}')`;
+      mainEl.style.backgroundImage = `url('${backgrounds[0]?.url}')`;
       const interval = setInterval(() => {
-        mainEl.style.backgroundImage = `url('api/${backgrounds[backgroundType]?.url}')`;
+        mainEl.style.backgroundImage = `url('${backgrounds[backgroundType]?.url}')`;
         backgroundType === 1 ? backgroundType = 0 : ++backgroundType;
       }, 5000);
       return () => clearInterval(interval);
